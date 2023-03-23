@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Container} from '@mui/material';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './components/navbar/NavBar';
+import About from './Pages/About';
+import Home from './Pages/Home';
+import Store from './Pages/Store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello MyEnglishBro!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+   <>
+    <NavBar></NavBar>
+     <Container sx={{mt:5}}>
+     <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/About" element={<About/>}></Route>
+      <Route path="/Store" element={<Store/>}></Route>
+     </Routes>
+    </Container> 
+   </>
   );
 }
 
