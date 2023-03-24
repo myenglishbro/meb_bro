@@ -1,17 +1,17 @@
-import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import {  List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { Box } from '@mui/system'
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import React from 'react'
 
-const NavListDrawer = () => {
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+
+const NavListDrawer = ({navLinks,setOpen}) => {
   return (
     <Box sx={{
         width:250
        
     }}
     > 
-    <nav>
+    {/* <nav>
         <List>
             <ListItem>
                 <ListItemIcon> <InboxIcon></InboxIcon></ListItemIcon>
@@ -23,19 +23,25 @@ const NavListDrawer = () => {
             </ListItem>
         </List>
     </nav>
-    <Divider/>
+    <Divider/> */}
     <nav>
         <List>
-            <ListItem disablePadding>
-                <ListItemButton component="a" href="#trash">
-                    <ListItemText>Trash</ListItemText>
+        {
+            navLinks.map(item=>(
+                <ListItem disablePadding key={item.title}>
+                <ListItemButton component={NavLink}
+                     to={item.path}
+                     onClick={()=>setOpen(false)}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText>{item.title}</ListItemText>
+                   
                 </ListItemButton>
+               
             </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton component="a" href="#spam">
-                    <ListItemText>Spam</ListItemText>
-                </ListItemButton>
-            </ListItem>
+            ))
+        }
+            
+           
            
         </List>
     </nav>
