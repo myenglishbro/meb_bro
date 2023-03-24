@@ -1,43 +1,54 @@
 import styled from '@emotion/styled'
-import { Button, Card, CardActions, CardContent, CardMedia, Paper, Typography } from '@mui/material'
+import {  Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Paper, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 
 const Home = () => {
-
   
-  const Img= styled("img")({
-    width:200,
-    height:"100%",
-    objectFit:"cover",
-    objectPosition:"center"
 
-
-   })
-  return (
-    <Paper
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: 2,
-      overflow: "hidden",
-      mt: 5,
+ return (
+  <Box
+  sx={{
+    backgroundImage: 'url(assets/img/jumping.png)',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: 'red',
+    color: 'white',
+    position: 'relative',
+    zIndex: 2,
+    '&::after': {
+    content: '""',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    backgroundColor: 'rgba(245, 0, 87, 0.5)',
+    zIndex: -1,
+    },
     }}
-  >
-  
-  <Img src="https://images.pexels.com/photos/4458554/pexels-photo-4458554.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Clase Privada de Ingles Basica-Intermedio"/>
-  <Box sx={{flexGrow:1 ,display:"grid",gap:1}} >
-      <Typography variant="h5">Clase  privada</Typography>
-      <Typography variant="body1"> 1hora</Typography>
-       <Button variant="contained"> Reservar</Button>
+    
+ >
+  <Box sx={{ maxWidth: '900px', textAlign: 'center' }}>
+    <Typography variant="h2" sx={{ mb: 3 }}>
+      Únete a la comunidad de aprendizaje online en vivo más grande de Latinoamérica
+    </Typography>
+    <Typography variant="body1" sx={{ mb: 3 }}>
+      Clases online en vivo, enfoque 100% práctico, mentorías personalizadas y acceso a una comunidad de estudiantes.
+    </Typography>
+    <Button href="https://wa.link/qwnf6w" variant="contained" sx={{ mr: 2 }}>
+      Contactar
+    </Button>
+    <Button href="https://wa.link/qwnf6w" variant="contained">
+      Grupo Wsp
+    </Button>
   </Box>
-
-  <Box sx={{mr:2}} component="p"> Precio S/28 </Box>
-  
-  
-  </Paper>
-     
-  )
+</Box>
+);
 }
-
 export default Home
